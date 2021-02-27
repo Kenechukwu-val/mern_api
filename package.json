@@ -4,7 +4,7 @@
   "description": "A multi-link tool ",
   "main": "App.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
+    "start": "NODE_ENV=production node app",
     "dev": " cross-env NODE_ENV=development nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
