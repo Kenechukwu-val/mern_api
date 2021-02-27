@@ -4,6 +4,8 @@
   "description": "A multi-link tool ",
   "main": "App.js",
   "scripts": {
+    "start": "NODE_ENV=production node app",
+    "dev": "NODE_ENV=development nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nwafor Kenechukwu (https://github.com/kenechukwu-val)",
