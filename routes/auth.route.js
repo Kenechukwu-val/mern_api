@@ -52,7 +52,7 @@ router.get('/facebook/callback', passport.authenticate('facebook', {failureRedir
 
 //refresh token
 router.get('/me', requireJwtAuth, (req, res) => {
-    const me = req.user
+    const me = req.user.toJson()
     res.json({ me })
 })
 
