@@ -1,5 +1,5 @@
-const passport = require('passport')
+const Passport = require('passport')
 
-const requireJwtAuth = passport.authenticate('jwt', { session: false })
+const requireJwtAuth = Passport.authenticate('jwt', { session: false })
 
 module.exports = requireJwtAuth

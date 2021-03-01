@@ -49,7 +49,7 @@ const passportLogin = new PassportLocalStrategy(
                 }
             )
 
-            return done(null, token, {message: 'Login Successful'})
+            return done(null, token, {message: 'Logged In Successfully'})
             
         } catch (err) {
             return done(err)
