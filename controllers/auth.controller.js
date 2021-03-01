@@ -53,7 +53,7 @@ const activate = async ( req, res ) => {
         JWT.verify(token, JWT_ACTIVATION, (err, decoded) => {
             if (err) {
                 return res.status(401).json({
-                    errors: 'Expired link. Signup again'
+                    message: 'Expired link. Signup again'
                 });
             }
 
@@ -67,7 +67,7 @@ const activate = async ( req, res ) => {
             user.save((err, user) => {
                 if (err) {
                     return res.status(401).json({
-                        errors: "User " + errorHandler(err)
+                        message: "User " + errorHandler(err)
     
                     });
                 } else {
