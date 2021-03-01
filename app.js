@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'development') {
 const authRoutes = require('./routes/auth.route')
 
 //Use routes
-app.use('/users', authRoutes)
+app.use('/', authRoutes)
 
 //fallback routes
 app.use((req, res) => res.status(404).json('No route for this path'))
