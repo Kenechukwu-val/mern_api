@@ -4,6 +4,8 @@ const Extractjwt = require('passport-jwt').Strategy
 
 const User = require('../models/user.model')
 
+const { JWT_SECRET_PROD, JWT_SECRET_DEV } = process.env
+
 const isProduction = process.env.NODE_ENV === 'production'
 const secretOrKey = isProduction ? JWT_SECRET_PROD : JWT_SECRET_DEV
 
