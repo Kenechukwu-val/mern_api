@@ -1,6 +1,5 @@
 const passport = require('passport')
-const jwtStrategy = require('passport-jwt').Strategy
-const Extractjwt = require('passport-jwt').Strategy
+const { ExtractJwt, JwtStrategy } = require('passport-jwt')
 
 const User = require('../models/user.model')
 
@@ -10,9 +9,9 @@ const isProduction = process.env.NODE_ENV === 'production'
 const secretOrKey = isProduction ? JWT_SECRET_PROD : JWT_SECRET_DEV
 
 //JWT Strategy
-const jwtLogin = new jwtStrategy(
+const jwtLogin = new JwtStrategy(
     {
-        jwtFromRequest: Extractjwt.fromHeader('x-auth-token'),
+        jwtFromRequest: ExtractJwt.fromHeader('x-auth-token'),
         secretOrKey
     },
 
