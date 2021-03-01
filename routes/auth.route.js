@@ -10,12 +10,15 @@ const {
     resetPasswordValidator
 } = require('../helpers/validate')
 
+const requireJwtAuth = require('../middleware/requireJwtAuth')
+
 const requireLocalAuth = require('../middleware/requireLocalAuth')
 
 const { register, activate, forgetPassword, resetPassword } = require('../controllers/auth.controller')
 
 const clientUrl = process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL_PROD : process.env.CLIENT_URL_DEV
 
+//normal routes
 router.post('/register', validateSignUp, register)
 router.post('/activate', activate)
 router.post('/login', requireLocalAuth, validateSignIn, (req, res) => {
@@ -44,6 +47,12 @@ router.get('/facebook/callback', passport.authenticate('facebook', {failureRedir
         res.redirect(clientUrl)
     }
 )
+
+//refresh token
+router.get('/me', requireJwtAuth, (req, res) => {
+    const me = req.user
+    res.json({ me })
+})
 
 
 
