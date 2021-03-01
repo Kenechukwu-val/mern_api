@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 
 //Passport initialization
 app.use(passport.initialize())
+require('./middleware/jwtStrategy')
 require('./controllers/login.controller')
 require('./controllers/googleStrategy')
 require('./controllers/facebookStrategy')
