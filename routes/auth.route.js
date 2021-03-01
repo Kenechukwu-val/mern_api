@@ -16,7 +16,7 @@ const requireLocalAuth = require('../middleware/requireLocalAuth')
 
 const { register, activate, forgetPassword, resetPassword } = require('../controllers/auth.controller')
 
-const clientUrl = process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL_PROD : process.env.CLIENT_URL_DEV
+// const clientUrl = process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL_PROD : process.env.CLIENT_URL_DEV
 
 //normal routes
 router.post('/register', validateSignUp, register)
@@ -27,6 +27,8 @@ router.post('/login', requireLocalAuth, validateSignIn, (req, res) => {
 })
 router.post('/forgetPassword', forgetPasswordValidator, forgetPassword)
 router.post('/resetPassword', resetPasswordValidator, resetPassword)
+
+const clientUrl = 'http://localhost:3000'
 
 //Google routes
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email']}))
